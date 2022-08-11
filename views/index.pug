@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  h1= title
+  h1 Web Functions
+  p Here you can see all functions that are currently available on this instance.
+  each f in functions
+    hr
+    h2
+      = f.method
+      = " "
+      = `/f/${f.user}/${f.name}/${f.token}`
+    div
+      = "Actions: "
+      a(href=`/edit/${f.user}/${f.name}/${f.token}`)
+        button(type="button") edit
+      = " "
+      a(href=`/delete/${f.user}/${f.name}/${f.token}`)
+        button(type="button") delete
+    h3 Name: #{f.name}
+    h3 Method: #{f.method}
+    h3= "Source Code:"
+    pre= f.function
+    h3 Token: #{f.token}
+    h3 URL:
+      = " "
+      a(href=`/f/${f.user}/${f.name}/${f.token}`)= `/f/${f.user}/${f.name}/${f.token}`
+  hr
+  a(href=`/new`)
+    button(type="button") add new function

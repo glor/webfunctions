@@ -1,0 +1,53 @@
+extends layout
+
+
+block content
+    h1= title
+    h1
+        = "Edit: "
+        = f.name
+
+    form(id="edit" method="post" action="")
+        a(href="/")
+            button(type="button") Go back!
+        = " "
+        button Save changes
+        br
+        br
+        label(for="user")= "User: "
+        input(type="text" id="user" name="user" value=f.user disabled)
+        br
+        label(for="name")= "Function name: "
+        input(type="text" id="name" name="name" value=f.name)
+        br
+        label(for="token")= "Access token: "
+        input(type="text" id="token" name="token" value=f.token)
+        br
+        label(for="method")= "HTTP Method: "
+        select(id="method" name="method")
+            if f.method === "GET"
+                option(value="GET" selected) GET
+            else
+                option(value="GET") GET
+
+            if f.method === "POST"
+                option(value="POST" selected) POST
+            else
+                option(value="POST") POST
+
+            if f.method === "PUT"
+                option(value="PUT" selected) PUT
+            else
+                option(value="PUT") PUT
+
+            if f.method === "DELETE"
+                option(value="DELETE" selected) DELETE
+            else
+                option(value="DELETE") DELETE
+        br
+        p Function source code:
+        div
+    script window.sourceCode = !{JSON.stringify(f.function)}
+    div(id="container")
+    script(src="/monaco/min/vs/loader.js")
+    script(src="/javascripts/editor.js")

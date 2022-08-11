@@ -1,0 +1,21 @@
+{
+  "name": "webfunctions",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "better-sqlite3": "^7.6.2",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "express-basic-auth": "^1.2.1",
+    "http-errors": "~1.6.3",
+    "knex": "^2.2.0",
+    "monaco-editor": "^0.34.0",
+    "morgan": "~1.9.1",
+    "pug": "^3.0.2",
+    "vm2": "^3.9.10"
+  }
+}
